@@ -11,12 +11,12 @@ import { NewsListPosts } from '../news.model';
 })
 export class NewsItemComponent {
   /**
-   * The class name for the component.
+   * The class name for the component using host binding.
    */
   @HostBinding('class') class = 'news-item col-12 col-md-6';
 
   /**
-   * The news item to display.
+   * The news item to display using input property binding.
    */
   @Input() newsItem: NewsListPosts | undefined;
 
