@@ -1,0 +1,7 @@
+<div class="news-item card h-100">
+  <div *ngIf="newsItem" class="card-body">
+    <h2>{{ newsItem.title }}</h2>
+    <p>{{ newsItem.body }}</p>
+    <p><strong>Views:</strong> {{ newsItem.views }}</p>
+  </div>
+</div>
