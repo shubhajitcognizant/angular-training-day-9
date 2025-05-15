@@ -3,5 +3,6 @@
     <h2>{{ newsItem.title }}</h2>
     <p>{{ newsItem.body }}</p>
     <p><strong>Views:</strong> {{ newsItem.views }}</p>
+    <a class="btn btn-success" [routerLink]="['/news', newsItem.id]">View Details</a>
   </div>
 </div>

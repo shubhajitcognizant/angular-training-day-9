@@ -1,6 +1,6 @@
 <ng-container *ngIf="newsList$ | async as newsList">
   <div class="news-list container">
-    <h1 class="news-list__heading text-center mb-5">News List</h1>
+    <h1 class="news-list__heading text-center py-4">News List</h1>
     <ng-container *ngIf="newsList.posts && newsList.posts.length > 0; else noNews">
       <div class="news-list__container row">
         <app-news-item *ngFor="let news of newsList.posts" [newsItem]="news"></app-news-item>

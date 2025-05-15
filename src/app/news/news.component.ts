@@ -23,5 +23,4 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     this.newsList$ = this.newsService.getNewsList();
   }
-
 }

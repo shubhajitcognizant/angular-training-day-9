@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable } from 'rxjs';
-import { NewsList } from './news.model';
+import { NewsList, NewsListPosts } from './news.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,13 +33,6 @@ export class NewsService {
           throw error;
         })
       );
-    }
-
-  /**
-   * Handles errors when fetching news articles.
-   */
-  getNewsListError(): void {
-    alert('Error fetching news');
   }
 
   /**
@@ -47,5 +40,27 @@ export class NewsService {
    */
   toggleVisibility(value: boolean): void {
     // this.isVisible.next(value);
+  }
+
+  /**
+   * Fetches a specific news article by its ID.
+   * @param id The ID of the news article.
+   */
+  getNewsById(id: number): Observable<NewsListPosts> {
+    return this.httpClient.get(`https://dummyjson.com/posts/${id}`)
+      .pipe(
+        catchError((error) => {
+          console.error('Error fetching news:', error);
+          // this.getNewsListError();
+          throw error;
+        })
+      );
+  }
+
+  /**
+   * Handles errors when fetching news articles.
+   */
+  getNewsListError(): void {
+    alert('Error fetching news');
   }
 }

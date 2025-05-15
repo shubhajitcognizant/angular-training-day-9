@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostBinding, Input } from '@angular/core';
 import { NewsListPosts } from '../news.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-news-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './news-item.component.html',
   styleUrl: './news-item.component.scss'
 })
