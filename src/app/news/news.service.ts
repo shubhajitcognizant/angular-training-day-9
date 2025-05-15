@@ -1,12 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable } from 'rxjs';
 import { NewsList } from './news.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
+
+  /**
+   * Behavior subject to show or hide component.
+   */
+  // public isVisible: BehaviorSubject<boolean> = new BehaviorSubject(true);
+
+  /**
+   * Observable to show or hide the component.
+   */
+  // public isVisible$: Observable<boolean> = this.isVisible.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -30,5 +40,12 @@ export class NewsService {
    */
   getNewsListError(): void {
     alert('Error fetching news');
+  }
+
+  /**
+   * Toggles the visibility of the component.
+   */
+  toggleVisibility(value: boolean): void {
+    // this.isVisible.next(value);
   }
 }
