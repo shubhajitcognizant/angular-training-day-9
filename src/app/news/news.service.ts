@@ -11,12 +11,12 @@ export class NewsService {
   /**
    * Behavior subject to show or hide component.
    */
-  // public isVisible: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  public isVisible: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   /**
    * Observable to show or hide the component.
    */
-  // public isVisible$: Observable<boolean> = this.isVisible.asObservable();
+  public isVisible$: Observable<boolean> = this.isVisible.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -39,7 +39,7 @@ export class NewsService {
    * Toggles the visibility of the component.
    */
   toggleVisibility(value: boolean): void {
-    // this.isVisible.next(value);
+    this.isVisible.next(value);
   }
 
   /**
@@ -47,7 +47,7 @@ export class NewsService {
    * @param id The ID of the news article.
    */
   getNewsById(id: number): Observable<NewsListPosts> {
-    return this.httpClient.get(`https://dummyjson.com/posts/${id}`)
+    return this.httpClient.get<NewsListPosts>(`https://dummyjson.com/posts/${id}`)
       .pipe(
         catchError((error) => {
           console.error('Error fetching news:', error);
